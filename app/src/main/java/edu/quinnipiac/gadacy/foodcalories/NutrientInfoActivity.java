@@ -2,7 +2,11 @@ package edu.quinnipiac.gadacy.foodcalories;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class NutrientInfoActivity extends AppCompatActivity {
 
@@ -10,5 +14,16 @@ public class NutrientInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrient_info);
+
+        Intent intent = getIntent();
+        TextView foodTextView = (TextView) findViewById(R.id.food_textView);
+        TextView calorieTextView = (TextView) findViewById(R.id.calorie_number_textView);
+        TextView fatTextView = (TextView) findViewById(R.id.fat_number_textView);
+
+        foodTextView.setText((String) intent.getExtras().get("foodName"));
+        calorieTextView.setText((String) intent.getExtras().get("foodCal"));
+        fatTextView.setText((String) intent.getExtras().get("foodFat"));
+        //TODO: bonus: figure out how to use the JSON "image" to set an image to that image.
+
     }
 }
