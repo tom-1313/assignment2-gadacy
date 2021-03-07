@@ -1,11 +1,14 @@
 package edu.quinnipiac.gadacy.foodcalories;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,6 +51,35 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        setSupportActionBar(findViewById(R.id.toolbar));
+    }
+
+    //Set up the toolbar options
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //See what toolbar option is selected and perform the required action
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.share:
+                //TODO: share stuff
+                break;
+            case R.id.help:
+                //TODO: help stuff
+                break;
+            case R.id.settings:
+                //TODO: settings stuff
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -141,10 +173,7 @@ public class MainActivity extends AppCompatActivity {
 }
 
 /*
-TODO: 1. Rest API Working
-        a. Update Spinner with text from API
-        b. Use JSON from Videos
-        c. Use AysnTask
+TODO:
       2. Create Toolbar
         a. Share option
         b. Setting Option
