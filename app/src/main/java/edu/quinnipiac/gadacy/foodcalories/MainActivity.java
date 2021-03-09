@@ -2,6 +2,8 @@ package edu.quinnipiac.gadacy.foodcalories;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ShareActionProvider;
+import androidx.core.view.MenuItemCompat;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String siteURL = "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=";
     private boolean userSelect = false;
+    private ShareActionProvider provider;
+    String foodFact[] = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        provider = (ShareActionProvider) MenuItemCompat.getActionProvider(menu.findItem(R.id.share));
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -68,12 +74,15 @@ public class MainActivity extends AppCompatActivity {
         switch (id) {
             case R.id.share:
                 //TODO: share stuff
+                Toast.makeText(this, "Please select a food first!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.help:
                 //TODO: help stuff
+                Toast.makeText(this, "Help", Toast.LENGTH_LONG).show();
                 break;
             case R.id.settings:
                 //TODO: settings stuff
+                Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -90,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
     class FetchFoodInfo extends AsyncTask<String, Void, String> {
         //Array to story food info from JSON
-        String foodFact[] = null;
         @Override
         protected String doInBackground(String... strings) {
             HttpURLConnection urlConnection = null;
