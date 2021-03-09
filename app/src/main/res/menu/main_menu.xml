@@ -6,15 +6,17 @@
         android:id="@+id/share"
         android:title="Share"
         android:icon="@mipmap/ic_action_share"
-        app:showAsAction = "ifRoom"/>
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"
+        app:showAsAction = "never"
+        />
     <item
         android:id="@+id/settings"
         android:title="Settings"
         android:icon="@mipmap/ic_action_settings"
-        app:showAsAction = "ifRoom"/>
+        app:showAsAction = "never"/>
     <item
         android:id="@+id/help"
         android:title="Help"
         android:icon="@mipmap/ic_action_help"
-        app:showAsAction = "ifRoom"/>
+        app:showAsAction = "never"/>
 </menu>
