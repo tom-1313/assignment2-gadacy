@@ -73,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.share:
-                //TODO: share stuff
                 Toast.makeText(this, "Please select a food first!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.help:
-                //TODO: help stuff
                 Toast.makeText(this, "Help", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
                 break;
             case R.id.settings:
                 //TODO: settings stuff

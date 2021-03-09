@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity">
+
+    <TextView
+        android:id="@+id/api_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="18dp"
+        android:text="API: Edamam Food and Grocery Database"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/api_desc_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/api_desc_textView"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="95dp"
+        android:gravity="center"
+        android:text="Description: This API provides tools to find nutrition and diet data for generic foods, packaged foods and restaurant meals."
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/dev_textView"
+        app:layout_constraintEnd_toEndOf="@+id/api_textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/api_textView"
+        app:layout_constraintTop_toBottomOf="@+id/api_textView" />
+
+    <TextView
+        android:id="@+id/dev_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="Developer of App: Thomas Gadacy"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/dev_desc_textView"
+        app:layout_constraintStart_toStartOf="@+id/api_desc_textView"
+        app:layout_constraintTop_toBottomOf="@+id/api_desc_textView" />
+
+    <TextView
+        android:id="@+id/dev_desc_textView"
+        android:layout_width="376dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="275dp"
+        android:gravity="center"
+        android:text="Description: Tom developed this app for the class SER210 for Quinnipiac University."
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dev_textView"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="@+id/dev_textView"
+        app:layout_constraintTop_toBottomOf="@+id/dev_textView" />
+
+    <TextView
+        android:id="@+id/info_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="@string/info_text"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
