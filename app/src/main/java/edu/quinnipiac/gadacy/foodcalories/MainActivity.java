@@ -71,18 +71,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        Intent intent;
         switch (id) {
             case R.id.share:
                 Toast.makeText(this, "Please select a food first!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.help:
-                Toast.makeText(this, "Help", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, HelpActivity.class);
+                intent = new Intent(this, HelpActivity.class);
                 startActivity(intent);
                 break;
             case R.id.settings:
-                //TODO: settings stuff
                 Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
