@@ -3,4 +3,6 @@
     <string name="info_text">
         <u>Information about the API and Developer</u>
     </string>
+    <string name="settings_text"><u>Settings</u></string>
+
 </resources>

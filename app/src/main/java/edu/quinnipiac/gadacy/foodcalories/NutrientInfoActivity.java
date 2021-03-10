@@ -57,22 +57,21 @@ public class NutrientInfoActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        Intent intent;
         switch (id) {
             case R.id.share:
-                //TODO: share stuff
-                Toast.makeText(this, "Share", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, "This food looks good! \n Food: " + name + ", Calories: " + calorie + ", Fat: " + fat);
                 provider.setShareIntent(intent);
                 break;
             case R.id.help:
-                //TODO: help stuff
-                Toast.makeText(this, "Help", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
                 break;
             case R.id.settings:
-                //TODO: settings stuff
-                Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
