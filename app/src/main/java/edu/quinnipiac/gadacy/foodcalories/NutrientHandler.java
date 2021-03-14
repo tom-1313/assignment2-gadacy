@@ -13,7 +13,8 @@ public class NutrientHandler {
     public String[] getFoodInfo(String foodInfoJsonStr) throws JSONException {
         JSONObject foodInfoJSONObj = new JSONObject(foodInfoJsonStr);
         JSONObject nutrientsJSONObj = foodInfoJSONObj.getJSONArray("parsed").getJSONObject(0).getJSONObject("food").getJSONObject("nutrients");
-        String foodInfo[] = {foodInfoJSONObj.getString("text"), nutrientsJSONObj.getString("ENERC_KCAL"), nutrientsJSONObj.getString("FAT")};
+        JSONObject imageJSONObj = foodInfoJSONObj.getJSONArray("parsed").getJSONObject(0).getJSONObject("food");
+        String foodInfo[] = {foodInfoJSONObj.getString("text"), nutrientsJSONObj.getString("ENERC_KCAL"), nutrientsJSONObj.getString("FAT"), imageJSONObj.getString("image")};
         return foodInfo;
     }
 }

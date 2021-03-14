@@ -18,7 +18,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         aSwitch = findViewById(R.id.theme_switch);
-
         SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
         aSwitch.setChecked(sharedPreferences.getBoolean("value", false));
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
