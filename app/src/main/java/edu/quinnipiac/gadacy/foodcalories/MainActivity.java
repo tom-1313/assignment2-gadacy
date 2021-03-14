@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         userSelect = true;
     }
 
+    //TODO: Move this to handler class... maybe
     class FetchFoodInfo extends AsyncTask<String, Void, String> {
         //Array to story food info from JSON
         @Override
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e("MainActivity", "ERROR: READER RETURNED NULL");
                     return null;
                 }
-                foodFact = getStringFromScanner(reader);
+                foodFact = getStringFromReader(reader);
 
 
             } catch (Exception e) {
@@ -149,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("foodName", foodFact[0]);
                 intent.putExtra("foodCal", foodFact[1]);
                 intent.putExtra("foodFat", foodFact[2]);
+                intent.putExtra("foodImage", foodFact[3]);
                 startActivity(intent);
             } else {
                 Log.e("MainActivity", "ERROR: onPostExecute RESULT IS NULL.");
@@ -156,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String[] getStringFromScanner(BufferedReader reader) {
+    private String[] getStringFromReader(BufferedReader reader) {
         StringBuffer buffer = new StringBuffer();
         String line;
 
@@ -183,13 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
 /*
 TODO:
-      2. Create Toolbar
-        a. Share option
-        b. Setting Option
-            i. Allow user to change background colors
-        c. Help option
-            i. Display info about API and developer
       3. Extra Stuff
-        a. Get picture from JSON
-            
+        a. Add recycle view for main activity.
+
  */

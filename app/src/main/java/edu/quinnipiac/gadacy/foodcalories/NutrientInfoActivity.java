@@ -9,8 +9,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -39,7 +42,8 @@ public class NutrientInfoActivity extends AppCompatActivity {
         fat = (String) intent.getExtras().get("foodFat");
 
         //TODO: bonus: figure out how to use the JSON "image" to set an image to that image.
-
+        ImageView imageView = (ImageView) findViewById(R.id.food_imageView);
+        Picasso.get().load((String) intent.getExtras().get("foodImage")).into(imageView);
         //set up the ActionBar
         setSupportActionBar(findViewById(R.id.toolbar2));
 
