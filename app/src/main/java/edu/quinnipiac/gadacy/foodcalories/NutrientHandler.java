@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class NutrientHandler {
 
     public String foods[] = { "Cauliflower", "Broccoli", "Cabbage", "Potato", "Eggplant", "Chillies", "Tomato", "Leek", "Corn", "Ginger", "Pumpkin", "Squash", "Cucumber", "Spinach", "Sweet Potato", "Apple", "Apricot", "Avocado", "Banana", "Blueberry", "Blackberry",
-                "Orange", "Lime", "Pear", "Passionfruit", "Beef", "Salmon", "Tuna", "Ice cream", "Now and Later", "Snickers", "Barley", "Oats", "Rice"};
+                "Orange", "Lime", "Pear", "Passionfruit", "Beef", "Salmon", "Tuna", "Ice cream", "Barley" };
 
     //Gets JSON Object from the website and gets the proper information from it. Adds the info to a string array.
     public String[] getFoodInfo(String foodInfoJsonStr) throws JSONException {

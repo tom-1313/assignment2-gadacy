@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
 import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -23,6 +25,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
     NutrientHandler nutrientHandler = new NutrientHandler();
@@ -31,32 +34,29 @@ public class MainActivity extends AppCompatActivity {
     private boolean userSelect = false;
     private ShareActionProvider provider;
     String foodFact[] = null;
+    private RecyclerView mRecycleView;
+    private LinkedList<String> mFoodList = new LinkedList<>();
+    private FoodListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<String> nutrientAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, nutrientHandler.foods);
-        nutrientAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(nutrientAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (userSelect) {
-                    final String item = (String) parent.getItemAtPosition(position);
-                    new FetchFoodInfo().execute(item);
-                    userSelect =  false;
-                }
-            }
+        for (int i = 0; i < nutrientHandler.foods.length; i++) {
+            mFoodList.addLast(nutrientHandler.foods[i]);
+        }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        mRecycleView = findViewById(R.id.recyclerView);
+        mAdapter = new FoodListAdapter(this, mFoodList, this);
+        mRecycleView.setAdapter(mAdapter);
+        mRecycleView.setLayoutManager(new LinearLayoutManager(this));
         setSupportActionBar(findViewById(R.id.toolbar));
+    }
+
+    //Search for a given food on the database
+    public void lookUpFood(String item) {
+        new FetchFoodInfo().execute(item);
     }
 
     //Set up the toolbar options
@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         userSelect = true;
     }
 
-    //TODO: Move this to handler class... maybe
     class FetchFoodInfo extends AsyncTask<String, Void, String> {
         //Array to story food info from JSON
         @Override
@@ -181,10 +180,3 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 }
-
-/*
-TODO:
-      3. Extra Stuff
-        a. Add recycle view for main activity.
-
- */

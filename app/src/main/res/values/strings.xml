@@ -3,6 +3,10 @@
     <string name="info_text">
         <u>Information about the API and Developer</u>
     </string>
+    <string name="api"><b>API:</b>\n Edamam Food and Grocery Database</string>
+    <string name="api_desc"><b>Description:</b> \nThis API provides tools to find nutrition and diet data for generic foods, packaged foods and restaurant meals.</string>
+    <string name="dev"><b>Developer of App:</b>\n Thomas Gadacy</string>
+    <string name="dev_desc"><b>Description:</b>\n Tom developed this app for the class SER210 for Quinnipiac University.</string>
     <string name="settings_text"><u>Settings</u></string>
 
 </resources>
