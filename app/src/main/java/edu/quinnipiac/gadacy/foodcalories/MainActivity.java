@@ -1,5 +1,10 @@
 package edu.quinnipiac.gadacy.foodcalories;
 
+/*
+Thomas Gadacy
+Professor Ruby ElKharboutly
+Assignment 2 Part 2
+ */
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
@@ -31,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     NutrientHandler nutrientHandler = new NutrientHandler();
 
     private String siteURL = "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=";
-    private boolean userSelect = false;
     private ShareActionProvider provider;
     String foodFact[] = null;
     private RecyclerView mRecycleView;
@@ -89,12 +93,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onUserInteraction() {
-        super.onUserInteraction();
-        userSelect = true;
     }
 
     class FetchFoodInfo extends AsyncTask<String, Void, String> {

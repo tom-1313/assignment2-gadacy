@@ -1,4 +1,9 @@
 package edu.quinnipiac.gadacy.foodcalories;
+/*
+Thomas Gadacy
+Professor Ruby ElKharboutly
+Assignment 2 Part 2
+ */
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

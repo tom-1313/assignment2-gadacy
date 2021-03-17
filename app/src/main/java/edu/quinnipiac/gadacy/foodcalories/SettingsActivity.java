@@ -1,5 +1,10 @@
 package edu.quinnipiac.gadacy.foodcalories;
 
+/*
+Thomas Gadacy
+Professor Ruby ElKharboutly
+Assignment 2 Part 2
+ */
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -9,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
 
+//This Activity allows the user to switch the theme of the app between light and dark mode
 public class SettingsActivity extends AppCompatActivity {
 
     public Switch aSwitch;

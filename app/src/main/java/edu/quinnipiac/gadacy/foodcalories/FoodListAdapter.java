@@ -1,5 +1,11 @@
 package edu.quinnipiac.gadacy.foodcalories;
 
+/*
+Thomas Gadacy
+Professor Ruby ElKharboutly
+Assignment 2 Part 2
+ */
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
 
+//This class and inner class sets up the RecyclerView for the options of food shown in the MainActivity
 public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodViewHolder> {
 
     private final LayoutInflater mInflater;
@@ -58,7 +65,6 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
         @Override
         public void onClick(View v) {
-            //when an item is clicked start the thread in the mainActivity
             int mPosition = getLayoutPosition();
             String element = mFoodList.get(mPosition);
             mainActivity.lookUpFood(element);
