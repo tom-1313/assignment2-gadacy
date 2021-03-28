@@ -8,5 +8,7 @@
     <string name="dev"><b>Developer of App:</b>\n Thomas Gadacy</string>
     <string name="dev_desc"><b>Description:</b>\n Tom developed this app for the class SER210 for Quinnipiac University.</string>
     <string name="settings_text"><u>Settings</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

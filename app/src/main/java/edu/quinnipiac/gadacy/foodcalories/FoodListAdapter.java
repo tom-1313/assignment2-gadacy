@@ -23,9 +23,10 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     private final LayoutInflater mInflater;
     private final LinkedList<String> mFoodList;
     private Context context;
-    private MainActivity mainActivity;
+    private MainFragment.MainFragmentListener mainActivity;
 
-    public FoodListAdapter(Context context, LinkedList<String> foodList, MainActivity mainActivity) {
+
+    public FoodListAdapter(Context context, LinkedList<String> foodList, MainFragment.MainFragmentListener mainActivity) {
         mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mainActivity = mainActivity;
@@ -36,7 +37,6 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     @Override
     public FoodListAdapter.FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.foodlist_item, parent, false);
-
         return new FoodViewHolder(mItemView, this);
     }
 
