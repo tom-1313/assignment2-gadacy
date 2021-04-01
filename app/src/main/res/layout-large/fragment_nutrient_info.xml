@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/food_imageView"
+        android:layout_width="0dp"
+        android:layout_height="459dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/calorie_number_textView" />
+
+    <TextView
+        android:id="@+id/food_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="TextView"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/food_imageView"
+        app:layout_constraintEnd_toStartOf="@+id/food_imageView" />
+
+    <TextView
+        android:id="@+id/calorie_number_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="33dp"
+        android:text="0"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/fat_number_textView"
+        app:layout_constraintEnd_toStartOf="@+id/food_imageView"
+        app:layout_constraintStart_toEndOf="@+id/calorie_textView" />
+
+    <TextView
+        android:id="@+id/fat_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="Fat:"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fat_number_textView"
+        app:layout_constraintStart_toStartOf="@+id/calorie_textView" />
+
+    <TextView
+        android:id="@+id/calorie_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="312dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="27dp"
+        android:text="Calories:"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/fat_textView"
+        app:layout_constraintEnd_toStartOf="@+id/calorie_number_textView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/fat_number_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="162dp"
+        android:text="0"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/calorie_number_textView"
+        app:layout_constraintTop_toTopOf="@+id/food_imageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

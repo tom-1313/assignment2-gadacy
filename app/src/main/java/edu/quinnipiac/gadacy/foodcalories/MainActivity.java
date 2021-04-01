@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
 import androidx.core.view.MenuItemCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -18,10 +18,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -30,31 +26,24 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.LinkedList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentListener {
     NutrientHandler nutrientHandler = new NutrientHandler();
 
     private String siteURL = "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=";
     private ShareActionProvider provider;
     String foodFact[] = null;
-    private RecyclerView mRecycleView;
-    private LinkedList<String> mFoodList = new LinkedList<>();
-    private FoodListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        for (int i = 0; i < nutrientHandler.foods.length; i++) {
-            mFoodList.addLast(nutrientHandler.foods[i]);
-        }
-
-        mRecycleView = findViewById(R.id.recyclerView);
-        mAdapter = new FoodListAdapter(this, mFoodList, this);
-        mRecycleView.setAdapter(mAdapter);
-        mRecycleView.setLayoutManager(new LinearLayoutManager(this));
+        MainFragment mainFragment = new MainFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_container, mainFragment);
+        fragmentTransaction.commit();
         setSupportActionBar(findViewById(R.id.toolbar));
     }
 
@@ -81,11 +70,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please select a food first!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.help:
-                intent = new Intent(this, HelpActivity.class);
-                startActivity(intent);
+                HelpActivity help = new HelpActivity();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, help);
+                fragmentTransaction.commit();
                 break;
             case R.id.settings:
                 intent = new Intent(this, SettingsActivity.class);
+
                 startActivity(intent);
                 break;
             default:
@@ -143,10 +136,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 Intent intent = new Intent(MainActivity.this, NutrientInfoActivity.class);
-                intent.putExtra("foodName", foodFact[0]);
-                intent.putExtra("foodCal", foodFact[1]);
-                intent.putExtra("foodFat", foodFact[2]);
-                intent.putExtra("foodImage", foodFact[3]);
+                intent.putExtra("foodFacts", foodFact);
                 startActivity(intent);
             } else {
                 Log.e("MainActivity", "ERROR: onPostExecute RESULT IS NULL.");
